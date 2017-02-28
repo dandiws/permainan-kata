@@ -1,0 +1,79 @@
+@keyframes blink {
+  50%{opacity: 0;}
+}
+.game2{
+  display: block;
+  height: 330px;
+  position: absolute;
+  margin: auto;
+  top: 0;bottom: 0;left: 0;right: 0;
+  width: 270px;
+}
+#input{
+  display: block;
+  background-color: #273d5c;
+  padding: 0 20px;
+  height: 50px;
+  line-height: 50px;
+  width: 270px;
+  margin: auto;
+  color: #fff;
+  font-size: 30px;
+  letter-spacing: 3px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#input::after{
+  content: '_';
+  animation: blink 1.5s infinite;
+}
+
+#delete{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 50px;
+  line-height: 50px;
+  width: 70px;
+  background-color: #182941;
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.letters{
+  width: 270px;
+  height: 270px;
+  margin: auto;
+  font-size: 0;
+}
+
+.letters input{
+  display: none;
+}
+
+.letters input+label{
+  width: 90px;
+  height: 90px;
+  display: inline-block;
+  background-color: #3b8f50;
+  text-align: center;
+  line-height: 90px;
+  font-size: 50px;
+  color: #fff;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.letters input:checked+label{
+  background-color: #347143;
+}
+
+.timer.game2{
+  position: static;
+  margin: auto;
+  width: 270px;
+  height: 10px;
+}

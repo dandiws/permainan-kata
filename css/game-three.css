@@ -1,0 +1,132 @@
+@keyframes swing {
+0%{transform: rotateY(0deg);}
+100%{transform: rotateY(360deg);}
+}
+.game3{
+  position: absolute;
+  width: 360px;
+  height: 460px;
+  margin: auto;
+  left: 0;right: 0;bottom: 0;top: 0;
+}
+.letters{
+  width: 360px;
+  height: 360px;
+  background-color: #b06c0f;
+}
+.letters input+label{
+  background-color: #cd7f15;
+  font-family: Arial,sans-serif;
+  transition: .3s;
+  overflow: auto;
+  position: relative;
+}
+.letters input:checked+label{
+  background-color: #a66a19;
+}
+.letters input:checked+label .front{
+  background-color: #a66a19;
+}
+label.correct .back{
+  background-color: #3ae341;
+}
+label.incorrect .back{
+  background-color: #d54637;
+}
+.card{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  background-color: #aaa;
+  transition: 1s;
+}
+.card div{
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.card .front{
+  background-color: #cd7f15;
+}
+.card .back{
+  background-color: #323232;
+  transform: rotateY(180deg);
+}
+.card .back.reset{
+  transform: rotateY(0);
+}
+.letters .rowodd label .card,
+.letters .roweven label .card{
+  transition: .2s;
+}
+.letters .rowodd.flipped label .card,
+.letters .roweven.flipped label .card{
+  transform: rotateY(180deg);
+  transition: .2s;
+}
+.letters .rowodd.play label .card,
+.letters .roweven.play label .card{
+  animation: swing 1s linear;
+  animation-iteration-count: 3;
+}
+.letters .rowodd.play label:nth-of-type(even) .card,
+.letters .roweven.play label:nth-of-type(odd) .card{
+  animation: animation: swing 1s linear;
+  animation-delay: 500ms;
+}
+.showword{
+  width: 100%;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  background-color: #222;
+  font-size: 0;
+}
+.showword input{
+  display: none;
+}
+.showword label,
+#guestword div{
+  display: inline-block;
+  width: 45px;
+  height: 50px;
+  letter-spacing: 4px;
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #777777;
+}
+.showword label.focused{
+  border:1px solid #dbab41;
+  box-sizing: border-box;
+}
+.showword input:checked+label{
+  background-color: rgba(255, 255, 2555, 0.1);
+  color: #fff;
+  position: relative;
+}
+.showword input:checked+label::after{
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -8px;
+  left: 0;right: 0;
+  margin: auto;
+  width: 0.1px;height: 0.1px;
+  border-top: 8px solid rgba(255, 255, 2555, 0.1);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+#guestword div{
+  border: 1px solid #777777;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+}
